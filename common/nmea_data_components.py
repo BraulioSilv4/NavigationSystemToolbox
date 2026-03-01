@@ -38,6 +38,9 @@ class Latitude:
     minutes: float      = None
     lat_dir: Hemisphere = None
 
+    def to_signed_lat(self):
+        value = self.degrees + self.minutes / 60
+        return value if self.lat_dir == Hemisphere.NORTH else -value
 
 
 @dataclass
@@ -46,6 +49,9 @@ class Longitude:
     minutes: float      = None
     lon_dir: Hemisphere = None
 
+    def to_signed_lon(self):
+        value = self.degrees + self.minutes / 60
+        return value if self.lon_dir == Hemisphere.EAST else -value
 
 
 @dataclass
@@ -53,3 +59,11 @@ class Coordinates:
     lat: Latitude   = None
     lon: Longitude  = None
 
+
+
+@dataclass
+class SatelliteInfo:
+    satellite_id: int = None
+    elevation: int = None
+    azimuth: int = None
+    snr: int = None

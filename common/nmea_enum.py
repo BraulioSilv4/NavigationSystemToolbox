@@ -49,3 +49,25 @@ class Hemisphere(Enum):
     WEST  = 'W'
 
 
+
+class ModeIndicator(Enum):
+    AUTONOMOUS      = 'A'
+    DIFFERENTIAL    = 'D'
+    ESTIMATED       = 'E'
+    MANUAL_INPUT    = 'M'
+    SIMULATION      = 'S'
+    DATA_NOT_VALID  = 'N'
+
+
+
+class StatusIndicator(Enum):
+    ACTIVE  = 'A'
+    VOID    = 'V'
+
+
+
+class FixMode(Enum):
+    NO_FIX          = 1
+    TWO_D_FIX       = 2
+    THREE_D_FIX     = 3
+
