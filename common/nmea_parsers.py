@@ -1,9 +1,10 @@
 from datetime import time
 
-from common.nmea_data_components import Coordinates, Altitude, FixQuality, DistanceMeasureUnit, Checksum, Latitude, \
-    Longitude, Hemisphere
-from common.nmea_data_types import GGA
+from common.nmea_data_components import Checksum, Coordinates, Latitude, Longitude, Altitude
+from common.nmea_enum import Hemisphere, FixQuality, DistanceMeasureUnit
 from common.nmea_instance import NMEAInstance
+from common.nmea_data_types import GGA
+
 
 def GGA_parser(instance: NMEAInstance):
     data, checksum = instance.nmea_str.split('*')
@@ -34,4 +35,4 @@ def GGA_parser(instance: NMEAInstance):
     gga_data.geoid_height = Altitude(float(data[11]), DistanceMeasureUnit(data[12]))
     gga_data.time_since_last_dgps = float(data[13]) if data[13] else None
     gga_data.dgps_reference_station_id = data[14] if data[14] else None
-    NMEAInstance.data = gga_data
+    instance.data = gga_data

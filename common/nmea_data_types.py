@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from datetime import time
-from common.nmea_data_components import Coordinates, FixQuality, Altitude, Checksum
+from common.nmea_data_components import Coordinates, Altitude, Checksum
+from common.nmea_enum import FixQuality
+
 
 @dataclass
 class GGA:
